@@ -1,8 +1,8 @@
 import CountrySelector from "./components/CountrySelector";
 import HighLight from "./components/HighLight";
-import Chart from "./components/Chart";
+import Summary from "./components/Summary";
 import { useEffect, useState } from "react";
-import { getCountries } from "./apis/api";
+import { getCountries } from "./apis/index";
 
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
       <p>Covid App</p>
       <CountrySelector countries={countries}/>
       <HighLight />
-      <Chart />
+      <Summary />
     </div>
   );
 }
