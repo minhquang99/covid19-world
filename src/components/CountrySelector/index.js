@@ -1,10 +1,12 @@
 import { FormControl, InputLabel, NativeSelect } from '@material-ui/core';
 import React from 'react';
 
-export default function CountrySelector({ value, handleOnChange, countries  }) {
+export default function CountrySelector({ value, handleOnChange, countries }) {
+    console.log('abc', typeof countries);
     return (
         <FormControl>
-            <InputLabel htmlFor="country-selector" shrink>Quốc gia
+            <InputLabel htmlFor="country-selector" shrink>
+                Quốc gia
             </InputLabel>
             <NativeSelect
                 value={value}
@@ -18,9 +20,11 @@ export default function CountrySelector({ value, handleOnChange, countries  }) {
             >
                 {
                     countries.map((country) => {
-                        return <option value={country.ISO2.toLowerCase()}>
-                            {country.Country}
-                        </option>
+                        return (
+                            <option value={country.ISO2.toLowerCase()}>
+                                {country.Country}
+                            </option>
+                        );
                     })
                 }
             </NativeSelect>
