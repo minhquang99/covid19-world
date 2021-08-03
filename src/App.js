@@ -6,6 +6,11 @@ import { getCountries, getReportByCountry } from "./apis/index";
 import './App.css';
 import '@fontsource/roboto';
 import { Container, Typography } from "@material-ui/core";
+import { sortBy } from "lodash";
+import moment from "moment";
+import 'moment/locale/vi';
+
+moment.locale('vn');
 
 
 function App() {
@@ -17,8 +22,13 @@ function App() {
   useEffect(() => {
     getCountries().then((res) => {
       console.log({ res }); //axios là 1 promise => cần then() để lấy data trả về
-      setCountries(res.data);
+      
+      //sort tên quốc gia theo abc
+      const sortCountry = sortBy(res.data, 'Country');
 
+      setCountries(sortCountry);
+
+      //mặc định VN khi render web
       setSelectedCountryID('vn');
     });
   }, []); //gọi API 1 lần duy nhất khi component được render lần đầu
@@ -41,12 +51,13 @@ function App() {
     }, [countries, selectedCountryID]);
 
   return (
-    <Container>
-      <Typography></Typography>
+    <Container style={{ marginTop: 20 }}>
+      <Typography variant="h3" component="h3">TRA CỨU COVID-19 THẾ GIỚI</Typography>
+      <Typography>{ moment().format('LLL') }</Typography>
       <CountrySelector countries={countries} handleOnChange={handleOnChange} value={selectedCountryID}/>
       <p></p>
       <HighLight reports={reports}/>
-      <p></p>
+
       <Summary reports={reports} selectedCountryID={selectedCountryID}/>
     </Container>
   );

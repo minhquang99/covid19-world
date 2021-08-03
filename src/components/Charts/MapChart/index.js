@@ -36,13 +36,14 @@ const initOptions = {
     series: [
         {
             mapData: {},
-            name: 'Dân số',
+            name: 'Địa điểm',
             joinBy: ['hc-key', 'key'],
         },
     ],
 };
 
 export default function MapChart({ mapData }) {
+    console.log('sdas', {mapData});
 
     const [options, setOptions ] = useState({});
     const chartRef = useRef(null);
@@ -52,6 +53,7 @@ export default function MapChart({ mapData }) {
     useEffect(() => {
 
         if (mapData && Object.keys(mapData).length) {
+            //loop array features để tạo data giả cho từng tỉnh
             const fakeData = mapData.features.map((features, index) => ({
                 key: features.properties['hc-key'],
                 value: index,
@@ -67,10 +69,12 @@ export default function MapChart({ mapData }) {
                     
                 ]
             });
-        }
         if(!configLoaded) setConfigLoaded(true);
+        }
+        
     }, [mapData, configLoaded]);
 
+    //vì thay đổi mapData trong options nên cần mothod update để load đúng bản đồ
     useEffect(() => {
         if (chartRef && chartRef.current) {
             chartRef.current.chart.series[0].update({

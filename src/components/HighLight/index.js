@@ -28,7 +28,7 @@ export default function HighLight({ reports }) {
         <Grid container spacing={3}>
             {
                 summary.map(item => (
-                    <Grid sm={4} xs={12}>
+                    <Grid item sm={4} xs={12} key={item.title}>
                         <HighLightCard 
                             title={item.title}
                             count={item.count}

@@ -6,7 +6,7 @@ export default function CountrySelector({ value, handleOnChange, countries }) {
     return (
         <FormControl>
             <InputLabel htmlFor="country-selector" shrink>
-                Quốc gia
+                Chọn Quốc gia: 
             </InputLabel>
             <NativeSelect
                 value={value}
@@ -21,7 +21,7 @@ export default function CountrySelector({ value, handleOnChange, countries }) {
                 {
                     countries.map((country) => {
                         return (
-                            <option value={country.ISO2.toLowerCase()}>
+                            <option key={country.ISO2} value={country.ISO2.toLowerCase()}>
                                 {country.Country}
                             </option>
                         );
