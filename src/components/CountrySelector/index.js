@@ -2,7 +2,7 @@ import { FormControl, InputLabel, NativeSelect } from '@material-ui/core';
 import React from 'react';
 
 export default function CountrySelector({ value, handleOnChange, countries }) {
-    console.log('abc', typeof countries);
+    
     return (
         <FormControl>
             <InputLabel htmlFor="country-selector" shrink>

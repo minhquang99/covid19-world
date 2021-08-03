@@ -6,8 +6,7 @@ import moment from 'moment'
 import { Button, ButtonGroup } from '@material-ui/core'
 
 const generateOptions = (data) => {
-    const categories = data.map(item => moment(item.Date).format('DD/MM/YYYY'));
-    console.log({categories});    
+    const categories = data.map(item => moment(item.Date).format('DD/MM/YYYY'));   
     return {
         //chieu cao linechart:
         chart: {
@@ -82,7 +81,7 @@ export default function LineChart({ data }) {
     
     return (
         <div>
-            <ButtonGroup size='small' style={{ display: 'flex', justifyContent: 'flex-end'}}>
+            <ButtonGroup size='small' style={{ display: 'flex', justifyContent: 'flex-start'}}>
                 <Button color={ lineType === 'all' ? 'secondary' : ''} onClick={() => setLineType('all')}>Tất cả</Button>
                 <Button color={ lineType === '30days' ? 'secondary' : ''} onClick={() => setLineType('30days')}>30 ngày</Button>
                 <Button color={ lineType === '7days' ? 'secondary' : ''} onClick={() => setLineType('7days')}>7 ngày</Button>

@@ -5,7 +5,6 @@ import HighLightCard from './HighLightCard';
 export default function HighLight({ reports }) {
     //lấy dữ liệu ngày gần nhất
     const data = reports && reports.length ? reports[reports.length - 1] : [];
-    console.log(data);
     const summary = [
         {
             title: 'Số ca nhiễm',

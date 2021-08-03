@@ -43,7 +43,6 @@ const initOptions = {
 };
 
 export default function MapChart({ mapData }) {
-    console.log('sdas', {mapData});
 
     const [options, setOptions ] = useState({});
     const chartRef = useRef(null);

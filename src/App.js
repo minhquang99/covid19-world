@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     getCountries().then((res) => {
-      console.log({ res }); //axios là 1 promise => cần then() để lấy data trả về
+       //axios là 1 promise => cần then() để lấy data trả về
       
       //sort tên quốc gia theo abc
       const sortCountry = sortBy(res.data, 'Country');

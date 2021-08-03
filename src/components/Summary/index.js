@@ -6,7 +6,6 @@ import MapChart from '../Charts/MapChart'
 export default function Summary({ reports, selectedCountryID }) {
 
     const [ mapData, setMapData] = useState({});
-    console.log(selectedCountryID);
 
     useEffect(() => {
         if (selectedCountryID) {
